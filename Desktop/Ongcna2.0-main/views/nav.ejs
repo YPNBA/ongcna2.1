@@ -1,0 +1,68 @@
+<div class="content">
+    <!-- Navbar -->
+    <nav>
+    
+        <form   id="rechercheForm" action="/recherche" method="get">
+            <input class="m-5 bg-gray-200 text-white py-2 px-4 rounded-full focus:outline-none focus:shadow-outline" type="text" name="q" id="rechercheInput" placeholder="Rechercher....">
+            
+        </form>
+          
+          <!-- Ajoutez une section pour afficher les résultats -->
+        <div id="resultats-recherche"></div>
+        <!-- index.ejs -->
+<!-- ... Autres contenus ... -->
+
+<!-- Ajoutez une section pour la carte flottante -->
+        <div id="resultats-flottants" class="fixed top-0 right-0 bottom-0 left-0 flex items-center justify-center invisible">
+            <div class="bg-white p-8 rounded-lg shadow-md">
+            <!-- Ajoutez du contenu ici pour afficher les détails de la recherche -->
+            <h2 class="text-xl font-bold mb-4">Détails de la recherche</h2>
+            <div id="details-recherche"></div>
+            <button id="fermer-carte" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-full">Fermer</button>
+            </div>
+        </div>
+        
+  <!-- ... Autres contenus ... -->
+  
+          
+       <!-- index.ejs -->
+<script>
+    // ... Autres contenus ...
+  
+    // Ajoutez un gestionnaire d'événements pour la saisie en temps réel
+    document.getElementById('rechercheInput').addEventListener('input', function () {
+      const query = this.value;
+      if (query.trim() !== '') {
+        // Déclenchez une requête AJAX pour obtenir les résultats de la recherche
+        fetch(`/recherche?q=${query}`)
+          .then(response => response.json())
+          .then(data => {
+            // Affichez la carte flottante avec les détails de la recherche
+            document.getElementById('resultats-flottants').classList.remove('invisible');
+            document.getElementById('details-recherche').innerHTML = data.html;
+          })
+          .catch(error => console.error('Erreur de recherche:', error));
+      } else {
+        // Cachez la carte flottante si le champ de recherche est vide
+        document.getElementById('resultats-flottants').classList.add('invisible');
+      }
+    });
+  
+    // Ajoutez un gestionnaire d'événements pour le bouton "Fermer" de la carte flottante
+    document.getElementById('fermer-carte').addEventListener('click', function () {
+      // Cachez la carte flottante lorsqu'on clique sur "Fermer"
+      document.getElementById('resultats-flottants').classList.add('invisible');
+    });
+  </script>
+  
+  
+        <input type="checkbox" id="theme-toggle" hidden>
+        <label for="theme-toggle" class="theme-toggle"></label>
+        <a href="#" class="notif">
+            <i class='bx bx-bell'></i>
+            <span class="count">12</span>
+        </a>
+        <a href="#" class="profile">
+            <img alt="" src="img/ongcna.jpeg">
+        </a>
+    </nav>

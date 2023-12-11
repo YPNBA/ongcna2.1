@@ -1,0 +1,96 @@
+{
+	"name": "vscode-ejs",
+	"type": "module",
+	"displayName": "EJS Language Support",
+	"description": "EJS syntax highlighting for Visual Studio Code.",
+	"version": "1.0.6",
+	"license": "MIT",
+	"icon": "assets/icon.png",
+	"publisher": "leonzalion",
+	"author": "Leon Si <contact@leonzalion.com>",
+	"engines": {
+		"vscode": "^1.62.0"
+	},
+	"scripts": {
+		"build": "node-ts ./scripts/build.ts",
+		"release": "node-ts ./scripts/release.ts",
+		"lint": "eslint --fix --cache .",
+		"prettier": "prettier --write .",
+		"tc": "tsc --noEmit"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"keywords": [
+		"EJS",
+		"embedded javascript",
+		"javascript",
+		"embedded typescript",
+		"typescript",
+		"syntax highlighting"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "ets",
+				"icon": {
+					"light": "./assets/icon.png",
+					"dark": "./assets/icon.png"
+				},
+				"aliases": [
+					"ETS"
+				],
+				"extensions": [
+					".ets"
+				],
+				"configuration": "./syntaxes/language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"scopeName": "text.html.ejs",
+				"path": "./syntaxes/ejs.tmLanguage.json",
+				"injectTo": [
+					"text.html"
+				],
+				"embeddedLanguages": {
+					"meta.embedded.block.ejs": "ejs",
+					"meta.embedded.block.typescript": "source.ts"
+				}
+			}
+		]
+	},
+	"bugs": {
+		"url": "https://github.com/leonzalion/vscode-ejs/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/leonzalion/vscode-ejs"
+	},
+	"homepage": "https://github.com/leonzalion/vscode-ejs#readme",
+	"devDependencies": {
+		"@types/inquirer": "^8.2.0",
+		"@types/sharp": "^0.30.0",
+		"chalk": "^5.0.1",
+		"desm": "^1.2.0",
+		"dot-prop": "^7.2.0",
+		"escape-string-regexp": "^5.0.0",
+		"inquirer": "^8.2.1",
+		"inquirer-press-to-continue": "^1.0.8",
+		"outdent": "^0.8.0",
+		"sharp": "^0.30.3",
+		"vsce": "^2.7.0",
+		"vscode-ejs": "file:../utilities/dist"
+	},
+	"__metadata": {
+		"id": "e8bcd859-2fc1-4e81-a6e6-b43b41449f08",
+		"publisherId": "c66ac252-4620-4491-9c39-40671acf0de8",
+		"publisherDisplayName": "Leon Si",
+		"targetPlatform": "undefined",
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1702133320963,
+		"pinned": false,
+		"preRelease": false
+	}
+}

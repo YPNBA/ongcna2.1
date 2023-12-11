@@ -1,0 +1,80 @@
+<%- include('header'); -%>
+<%- include('sidebar'); -%>
+<%- include('nav'); -%>
+
+
+
+        <!--form-->
+        <div class="container mx-auto my-8 p-8 bg-blend-overlay rounded-md shadow-lg">
+            <h1 class="text-2xl font-bold mb-4">Formulaire de Création de Stagiaire</h1>
+            
+            <form action="/inscription" method="post" class="space-y-4" enctype="multipart/form-data">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="nom" class="block text-sm font-medium mb-2">Nom</label>
+                        <input type="text" id="nom" name="nom" class="mt-1 p-2 w-full border rounded-md" required>
+                    </div>
+                    <div>
+                        <label for="prenom" class="block text-sm font-medium mb-2">Prénom</label>
+                        <input type="text" id="prenom" name="prenom" class="mt-1 p-2 w-full border rounded-md" required>
+                    </div>
+                </div>
+            
+                <div class="mb-2">
+                    <label for="email" class="block text-sm font-medium mb-2"">Email</label>
+                    <input type="email" id="email" name="email" class="mt-1 p-2 w-full border rounded-md" required>
+                </div>
+            
+                <div class="mb-2">
+                    <label for="telephone" class="block text-sm font-medium mb-2"">Numéro de Téléphone</label>
+                    <input type="number" id="telephone" name="telephone" class="mt-1 p-2 w-full border rounded-md" required>
+                </div>
+            
+                <div class="mb-2">
+                    <label for="age" class="block text-sm font-medium mb-2">Veille entrer l'age du stagiaire </label>
+                    <input type="text" id="age" name="age" class="mt-1 p-2 w-full border rounded-md mb-2"" required>
+                
+            
+                    <div class="mb-2">
+                        <label for="quartier" class="block text-sm font-medium">Quartier</label>
+                        <input type="text" id="quartier" name="quartier" class="mt-1 p-2 w-full border rounded-md" required>
+                    </div>
+                
+            
+                <div class="mb-2">
+                    <label for="ecole" class="block text-sm font-medium mb-2">École</label>
+                    <input type="text" id="ecole" name="ecole" class="mt-1 p-2 w-full border rounded-md" required>
+                </div>
+                <div class="mb-2">
+                    <label for="typeStage" class="block text-sm font-medium mb-2">Type de Stage</label>
+                    <select id="typeStage" name="typeStage" class="mt-1 p-2 w-full border rounded-md" required>
+                        <!-- Option par défaut -->
+                        <option value="" disabled selected>Choisir le statut du stagiaire</option>
+                        <!-- Options réelles -->
+                        <option value="devWeb">Développement Web</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="droit">Droit</option>
+                        <option value="adminSysReseau">Administration Système et Réseau</option>
+                        <option value="developpeur_logiciel">Développeur logiciel</option>
+                        <option value="designer">Designer</option>
+                        <option value="community_manager">Community manager</option>
+                        <option value="responsable_e-commerce">Responsable e-commerce</option>
+                        <!-- Ajoutez d'autres options en fonction de vos besoins -->
+                    </select>
+                </div>
+            
+                <!-- Ajoutez un champ pour le téléchargement de l'image -->
+                <div class="mb-2">
+                    <label for="photo" class="block text-sm font-medium mb-2">Photo</label>
+                    <input type="file" id="photo" name="photo" accept="image/*" required>
+                </div>
+            
+                <div>
+                    <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                        Enregistrer
+                    </button>
+                </div>
+            </form>
+    <script src="js/index.js"></script>
+</body>
+</html>

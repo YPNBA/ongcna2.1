@@ -1,0 +1,5 @@
+[user]
+	name = Rufus
+	email = genesisbemond@gmail.com
+[core]
+	autocrlf = true

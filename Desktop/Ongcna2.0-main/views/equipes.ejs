@@ -1,0 +1,48 @@
+<!-- views/equipes.ejs -->
+
+<%- include('header'); -%>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+    <!-- Sidebar -->
+    <%- include('sidebar'); -%>
+
+    <!-- Main Content -->
+    <%- include('nav'); -%>
+
+    <main class="flex-1 bg-gray-200 mt-12 md:mt-2 pb-24 md:pb-5">
+
+        <div class="bg-blue-700 p-4 text-white rounded-md">
+            <div class="left">
+                <h1 class="text-3xl font-bold">Equipes</h1>
+            </div>
+        </div>
+
+        <div class="container mt-5 mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <% groupes.forEach(groupe => { %>
+                <div class="bg-white rounded-md shadow-md p-6 mb-6">
+                    <h2 class="text-xl font-bold mb-4 text-gray-800">Groupe <%= groupe %></h2>
+                    <ul>
+                        <% stagiaires.filter(stagiaire => stagiaire.typeStage === groupe).forEach(stagiaire => { %>
+                            <li class="mb-4 flex items-center">
+                                <img src="<%= stagiaire.photo %>" alt="<%= stagiaire.nom %> <%= stagiaire.prenom %>" class="w-10 h-10 rounded-full mr-2 cursor-pointer">
+                                <a  href="/stagiaires/<%= stagiaire._id %>" class="text-blue-700 hover: cursor-pointer">
+                                    <%= stagiaire.nom %> <%= stagiaire.prenom %> 
+                                </a>
+                            </li>
+                        <% }); %>
+                    </ul>
+                </div>
+            <% }); %>
+        </div>
+
+    </main>
+
+    <script src="js/index.js"></script>
+    <script>
+        function showInfo(nomPrenom, informations) {
+            // Vous pouvez définir ici la logique pour afficher les informations complètes
+            alert('Informations de ' + nomPrenom + ':\n' + informations);
+        }
+    </script>
+</body>
+</html>
